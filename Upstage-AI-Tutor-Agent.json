@@ -1,0 +1,620 @@
+{
+  "name": "손글손수씨ver3",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1PmAcwQTjWg5JKVXK7hDK4QStdIf4JpmI",
+          "mode": "list",
+          "cachedResultName": "01_Textbook",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1PmAcwQTjWg5JKVXK7hDK4QStdIf4JpmI"
+        },
+        "event": "folderCreated"
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a3b3dc5d-824e-4fd0-9b9c-a7b528ae74a8",
+      "name": "Google Drive trigger_01_교안",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1qJIOn6e5Ilc4PqePnPaPLr6xMHtZrbu9",
+          "mode": "list",
+          "cachedResultName": "02_Notes",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1qJIOn6e5Ilc4PqePnPaPLr6xMHtZrbu9"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        224
+      ],
+      "id": "99f0173d-cf8a-4114-bbd8-0dc6d8d9820d",
+      "name": "Google Drive trigger_02_필기",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1mj8IKf8rDD7vIVwZ5q_oMiOmLDfV4-DC",
+          "mode": "list",
+          "cachedResultName": "03_Review",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1mj8IKf8rDD7vIVwZ5q_oMiOmLDfV4-DC"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        432
+      ],
+      "id": "93e2b170-0601-4bcb-a659-aba51b311f4c",
+      "name": "Google Drive trigger_03_복습",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "강의 교안 입력",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        16
+      ],
+      "typeVersion": 1,
+      "id": "e0984758-b713-41e5-a9f9-584755af01f7",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "강의 필기본 입력",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        240
+      ],
+      "typeVersion": 1,
+      "id": "d4b961f2-d821-4a1d-95c8-104bc53d1548",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "복습 파일\n",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -224,
+        464
+      ],
+      "typeVersion": 1,
+      "id": "66edf78f-49aa-4415-87e4-4b58a62fe843",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "fileName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        176,
+        0
+      ],
+      "id": "b8075ee4-0645-40a2-8f3a-e00d943dae7a",
+      "name": "Download file_01교안",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "fileName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        192,
+        224
+      ],
+      "id": "04ac3f38-67aa-4ff9-bb31-ec25d6ee711e",
+      "name": "Download file_02필기",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {
+          "fileName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        192,
+        432
+      ],
+      "id": "6f071dbe-3414-4fc8-8e48-b2869921b1b5",
+      "name": "Download file_03복습",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-upstage.documentOCRUpstage",
+      "typeVersion": 1,
+      "position": [
+        368,
+        224
+      ],
+      "id": "14d4ae81-5911-4abf-a1e6-4f68aa325001",
+      "name": "Upstage Document OCR_02필기",
+      "credentials": {
+        "upstageApi": {
+          "id": "LMEOANvvEropqn8x",
+          "name": "Upstage account 215"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-upstage.documentOCRUpstage",
+      "typeVersion": 1,
+      "position": [
+        352,
+        0
+      ],
+      "id": "72876c77-0822-4720-b77b-845768305c0f",
+      "name": "Upstage Document OCR_01교안",
+      "credentials": {
+        "upstageApi": {
+          "id": "LMEOANvvEropqn8x",
+          "name": "Upstage account 215"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-upstage.documentOCRUpstage",
+      "typeVersion": 1,
+      "position": [
+        384,
+        432
+      ],
+      "id": "e27f1a37-6782-4909-9009-6c2bbb4d77db",
+      "name": "Upstage Document OCR_03복습",
+      "credentials": {
+        "upstageApi": {
+          "id": "LMEOANvvEropqn8x",
+          "name": "Upstage account 215"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "solar-pro2",
+        "messages": {
+          "message": [
+            {
+              "role": "system",
+              "content": "당신은 학생의 학습을 돕는 친절하고 꼼꼼한 AI 튜터입니다.\n제공되는 [기준 지식]을 바탕으로 학생의 [복습 내용]을 채점하고 피드백해주세요."
+            },
+            {
+              "content": "=[기준 지식]:\n{{ $json.text }} \n\n[학생 답안]:\n{{ $('Upstage Document OCR_03복습').item.json.text }} \n\n[요청 사항]:\n위 기준 지식을 완벽하게 숙지한 상태에서, 학생 답안을 채점하고 빠진 내용을 꼼꼼하게 분석해서 친절하게 피드백해줘."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-upstage.lmChatUpstage",
+      "typeVersion": 1,
+      "position": [
+        912,
+        432
+      ],
+      "id": "0ba9427b-2eb0-4ce8-bee7-1f66ecc4ff6b",
+      "name": "Upstage Solar Chat",
+      "credentials": {
+        "upstageApi": {
+          "id": "LMEOANvvEropqn8x",
+          "name": "Upstage account 215"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "folderId": "1mj8IKf8rDD7vIVwZ5q_oMiOmLDfV4-DC",
+        "title": "={{ $now }} 학습 피드백 리포트"
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1072,
+        432
+      ],
+      "id": "bc95ae31-48e9-4350-a753-58e45ded7faa",
+      "name": "Create a document",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "gcf3pHj7hwlyDXAB",
+          "name": "Google Docs OAuth2 API_0127same"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $('Upstage Solar Chat').item.json.content }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        432
+      ],
+      "id": "7f768791-2958-4915-a37a-5b4657b60afe",
+      "name": "Update a document1",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "gcf3pHj7hwlyDXAB",
+          "name": "Google Docs OAuth2 API_0127same"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "13gEoVB6l8vOoXjxt51D0YbjLyeNULo52l5Lu4IER9q0",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $json.text }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        560,
+        224
+      ],
+      "id": "13f1facd-2b78-4214-b650-1923362b822e",
+      "name": "Update a document_필기",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "gcf3pHj7hwlyDXAB",
+          "name": "Google Docs OAuth2 API_0127same"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "13gEoVB6l8vOoXjxt51D0YbjLyeNULo52l5Lu4IER9q0",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $json.text }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "9c9075c5-51f6-4c0f-bd31-cf5779709a54",
+      "name": "Update a document_교안",
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "gcf3pHj7hwlyDXAB",
+          "name": "Google Docs OAuth2 API_0127same"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "13gEoVB6l8vOoXjxt51D0YbjLyeNULo52l5Lu4IER9q0",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        560,
+        432
+      ],
+      "id": "7d9517a5-5d3b-44d5-90bb-d57387cf3786",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "c9WAQPOE4tkHq2kN",
+          "name": "Google Drive OAuth API_0127"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-upstage.documentOCRUpstage",
+      "typeVersion": 1,
+      "position": [
+        736,
+        432
+      ],
+      "id": "3576f758-99db-4b29-b32e-877142f8743b",
+      "name": "Upstage Document OCR",
+      "credentials": {
+        "upstageApi": {
+          "id": "LMEOANvvEropqn8x",
+          "name": "Upstage account 215"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Drive trigger_01_교안": {
+      "main": [
+        [
+          {
+            "node": "Download file_01교안",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive trigger_02_필기": {
+      "main": [
+        [
+          {
+            "node": "Download file_02필기",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive trigger_03_복습": {
+      "main": [
+        [
+          {
+            "node": "Download file_03복습",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file_01교안": {
+      "main": [
+        [
+          {
+            "node": "Upstage Document OCR_01교안",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upstage Document OCR_01교안": {
+      "main": [
+        [
+          {
+            "node": "Update a document_교안",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upstage Document OCR_03복습": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file_03복습": {
+      "main": [
+        [
+          {
+            "node": "Upstage Document OCR_03복습",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upstage Solar Chat": {
+      "main": [
+        [
+          {
+            "node": "Create a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a document": {
+      "main": [
+        [
+          {
+            "node": "Update a document1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upstage Document OCR_02필기": {
+      "main": [
+        [
+          {
+            "node": "Update a document_필기",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file_02필기": {
+      "main": [
+        [
+          {
+            "node": "Upstage Document OCR_02필기",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Upstage Document OCR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upstage Document OCR": {
+      "main": [
+        [
+          {
+            "node": "Upstage Solar Chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c50d801e-5021-4ef4-8547-083ca22f8df1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3a2f1e493c58813431ee31e1bf0b0578de9e5243b1ae5b510120463672b15c48"
+  },
+  "id": "adDxjR362mQKSXF2",
+  "tags": []
+}
